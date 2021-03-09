@@ -1,0 +1,9 @@
+{
+    "name": "Better Compact Mode",
+    "description": "Compact mode but better",
+    "version": "1.0.0",
+    "author": "Yellowsink#8156",
+    "theme": "compact.theme.scss",
+    "consent": ["ext_listing"],
+    "license": "BSD-3"
+}

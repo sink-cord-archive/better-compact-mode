@@ -1,0 +1,103 @@
+$hide-inline-pronoundb: false;
+$right-align-header: false;
+
+$avatar-size: 1.3rem;
+$emoji-size: 1.375em; // default values for non-jumbo emojis
+$spacer-increase: 7px;
+$header-spacing: .25rem;
+$message-left-margin: .5rem;
+
+.cozy-3raOZG {
+    // make avatars small
+    .avatar-1BDn8e { height: $avatar-size !important; width: $avatar-size !important; }
+
+    // make gap on left small
+    &.wrapper-2a6GCs { padding-left: 48px; }
+
+    // Make replied messages work with small avatars
+    .repliedMessage-VokQwo::before { --avatar-size: #{2rem - $avatar-size}; }
+
+    // Bring messages inline
+    .contents-2mQqc9 { display: flex; }
+
+    // Set margins on message content
+    @if not($right-align-header) { &.groupStart-23k01U { .messageContent-2qWWxC { margin-left: $message-left-margin; padding-left: 0; } } }
+
+    // Fix large emojis
+    .emoji.jumboable { width: #{$emoji-size}; height: #{$emoji-size}; min-height: #{$emoji-size}; }
+
+    @if $right-align-header {
+        .avatar-1BDn8e { position: absolute; right: 1rem; left: unset; }
+    }
+
+    // Name & timestamp
+    .header-23xsNx {
+        @if $right-align-header{
+            position: absolute;
+            right: 3rem;
+        }
+        @else {
+            display: flex;
+            align-items: baseline;
+            flex-direction: row-reverse;
+
+            .headerText-3Uvj1Y { margin-right: 0; margin-left: $header-spacing; }
+
+            .timestamp-3ZCmNB { margin-right: $header-spacing; margin-left: 0; }
+        }
+
+
+        // Support pronoundb-powercord better
+        // Last header item, unless it's a timestamp
+        & > :last-child:not(.timestamp-3ZCmNB) {
+            @if $hide-inline-pronoundb { display: none; }
+            @else {
+                margin-left: -.75rem;
+                margin-right: $header-spacing * 2;
+            }
+        }
+    }
+
+    // Hide timestamps on non group-starts
+    .timestampVisibleOnHover-2bQeI4 { display: none; }
+
+    // Message spacing
+    min-height: 0 !important;
+    &.groupStart-23k01U { margin-top: .3rem !important; }
+    margin-top: 0 !important;
+
+    @if $right-align-header {
+        padding-left: 1.5rem !important;
+        .repliedMessage-VokQwo { margin-left: 2rem; }
+    }
+}
+
+// Fix bottom avatar slightly cut off
+.scrollerSpacer-avRLaA { height: #{30px + $spacer-increase}; }
+
+#---new-messages-bar {
+    margin-bottom: .1rem;
+    top: 0;
+
+    @if $right-align-header {
+        .unreadPill-2HyYtt {
+            right: unset;
+            left: 0;
+            border-left: unset;
+            border-radius: 4px 0 0 4px;
+            padding: 1px 1px 0 4px;
+
+            .unreadPillCap-3_K2q2 {
+                left: unset;
+                right: -6px;
+                transform: rotate(180deg);
+                z-index: -1;
+            }
+        }
+    }
+    @else {
+        .unreadPill-2HyYtt {
+            padding: 1px 4px 0 1px;
+        }
+    }
+}
