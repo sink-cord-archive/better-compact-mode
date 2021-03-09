@@ -28,7 +28,7 @@ $max-expected-header-width: 15rem;
     }
 
     // Set margins on message content
-    @if not($right-align-header) { &.groupStart-23k01U { .messageContent-2qWWxC { margin-left: $message-left-margin; padding-left: 0; } } }
+    @if not($right-align-header) { &.groupStart-23k01U { .messageContent-2qWWxC, .channelTextArea-3bF57p, .operations-36ENbA { margin-left: $message-left-margin; padding-left: 0; } } }
 
     // Fix large emojis
     .emoji.jumboable { width: #{$emoji-size}; height: #{$emoji-size}; min-height: #{$emoji-size}; }
@@ -79,6 +79,8 @@ $max-expected-header-width: 15rem;
         padding-left: 1.5rem !important;
         .repliedMessage-VokQwo { margin-left: 2rem; }
     }
+
+    :nth-child(3) { flex: 1; }
 }
 
 // Fix bottom avatar slightly cut off
