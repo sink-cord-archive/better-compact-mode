@@ -6,6 +6,7 @@ $emoji-size: 1.375em; // default values for non-jumbo emojis
 $spacer-increase: 7px;
 $header-spacing: .25rem;
 $message-left-margin: .5rem;
+$max-expected-header-width: 15rem;
 
 .cozy-3raOZG {
     // make avatars small
@@ -18,7 +19,13 @@ $message-left-margin: .5rem;
     .repliedMessage-VokQwo::before { --avatar-size: #{2rem - $avatar-size}; }
 
     // Bring messages inline
-    .contents-2mQqc9 { display: flex; }
+    .contents-2mQqc9 {
+        display: flex;
+        @if $right-align-header {
+            @if $hide-inline-pronoundb { padding-right: $max-expected-header-width; }
+            @else {padding-right: $max-expected-header-width + 10rem; }
+        }
+    }
 
     // Set margins on message content
     @if not($right-align-header) { &.groupStart-23k01U { .messageContent-2qWWxC { margin-left: $message-left-margin; padding-left: 0; } } }
@@ -52,8 +59,10 @@ $message-left-margin: .5rem;
         & > :last-child:not(.timestamp-3ZCmNB) {
             @if $hide-inline-pronoundb { display: none; }
             @else {
-                margin-left: -.75rem;
-                margin-right: $header-spacing * 2;
+                @if not($right-align-header) {
+                    margin-left: -.75rem;
+                    margin-right: $header-spacing * 2;
+                }
             }
         }
     }
