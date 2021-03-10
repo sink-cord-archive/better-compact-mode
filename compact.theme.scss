@@ -104,12 +104,38 @@ $max-expected-header-width: 15rem;
 	&.groupStart-23k01U { margin-top: 0.3rem !important; }
 	margin-top: 0 !important;
 
+	
+
 	@if $right-align-header {
-		padding-left: 1.5rem !important;
+		margin-left: 1rem !important;
+		padding-left: .5rem !important;
 		.repliedMessage-VokQwo { margin-left: 2rem; }
+
+		margin-right: .5rem !important;
+		padding-right:.5rem !important;
+		.header-23xsNx { right: 2.5rem; }
+		.avatar-1BDn8e { right: .5rem; }
+	} @else {
+		margin-left: 1rem !important;
+		padding-left: 1.75rem !important;
+		.avatar-1BDn8e { left: calc(16px - .75rem); }
+		.repliedMessage-VokQwo { margin-left: calc(16px - .5rem); }
 	}
 
-	:nth-child(3) { flex: 1; }
+	:nth-child(3) { flex-grow: 0; flex-basis: auto; }
+
+	// Add a border on top of message groups
+	&.groupStart-23k01U {
+		border-top: 1px dashed var(--interactive-muted);
+		border-top-left-radius: .7rem;
+		@if $right-align-header { border-top-right-radius: .7rem; }
+	}
+
+	@if $right-align-header {
+		border-right: 1px dashed var(--interactive-muted);
+	}
+
+	border-left: 1px dashed var(--interactive-muted);
 }
 
 // Fix bottom avatar slightly cut off
