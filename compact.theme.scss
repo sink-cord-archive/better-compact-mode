@@ -1,5 +1,5 @@
-$hide-inline-pronoundb: false;
-$right-align-header: false;
+$hide-inline-pronoundb: true;
+$right-align-header: true;
 
 $avatar-size: 1.3rem;
 $emoji-size: 1.375em; // default values for non-jumbo emojis
@@ -136,6 +136,9 @@ $max-expected-header-width: 15rem;
 	}
 
 	border-left: 1px dashed var(--interactive-muted);
+
+	// Make header show inline with message reply
+	@if $right-align-header { .header-23xsNx, .avatar-1BDn8e { top: 2px; } }
 }
 
 // Fix bottom avatar slightly cut off
