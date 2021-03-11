@@ -24,11 +24,13 @@ $max-expected-header-width: 15rem;
 	// Bring messages inline
 	.contents-2mQqc9 {
 		display: flex;
-		@if $right-align-header {
-			@if $hide-inline-pronoundb {
-				padding-right: $max-expected-header-width;
-			} @else {
-				padding-right: $max-expected-header-width + 10rem;
+		&, :nth-child(3){
+			@if $right-align-header {
+				@if $hide-inline-pronoundb {
+					padding-right: $max-expected-header-width;
+				} @else {
+					padding-right: $max-expected-header-width + 10rem;
+				}
 			}
 		}
 	}
@@ -122,7 +124,7 @@ $max-expected-header-width: 15rem;
 		.repliedMessage-VokQwo { margin-left: calc(16px - .5rem); }
 	}
 
-	:nth-child(3) { flex-grow: 0; flex-basis: auto; }
+	.contents-2mQqc9 :nth-child(3) { display: block; flex: 1; }
 
 	// Add a border on top of message groups
 	&.groupStart-23k01U {
