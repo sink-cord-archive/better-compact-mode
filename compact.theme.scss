@@ -8,162 +8,166 @@ $header-spacing: 0.25rem;
 $message-left-margin: 0.5rem;
 $max-expected-header-width: 15rem;
 
-.cozy-3raOZG {
-	// make avatars small
-	.avatar-1BDn8e {
-		height: $avatar-size !important;
-		width: $avatar-size !important;
-	}
+.messagesWrapper-1sRNjr {
 
-	// make gap on left small
-	&.wrapper-2a6GCs { padding-left: 48px; }
-
-	// Make replied messages work with small avatars
-	.repliedMessage-VokQwo::before { --avatar-size: #{2rem - $avatar-size}; }
-
-	// Bring messages inline
-	.contents-2mQqc9 {
-		display: flex;
-		&, :nth-child(3){
-			@if $right-align-header {
-				@if $hide-inline-pronoundb {
-					padding-right: $max-expected-header-width;
-				} @else {
-					padding-right: $max-expected-header-width + 10rem;
-				}
-			}
-		}
-	}
-
-	// Set margins on message content
-	@if not($right-align-header) {
-		&.groupStart-23k01U {
-			.messageContent-2qWWxC,
-			.channelTextArea-3bF57p,
-			.operations-36ENbA {
-				margin-left: $message-left-margin;
-				padding-left: 0;
-			}
-		}
-	}
-
-	// Fix large emojis
-	.emoji.jumboable {
-		width: $emoji-size;
-		height: $emoji-size;
-		min-height: $emoji-size;
-	}
-
-	@if $right-align-header {
+	.cozy-3raOZG {
+		// make avatars small
 		.avatar-1BDn8e {
-			position: absolute;
-			right: 1rem;
-			left: unset;
+			height: $avatar-size !important;
+			width: $avatar-size !important;
 		}
-	}
 
-	// Name & timestamp
-	.header-23xsNx {
-		@if $right-align-header {
-			position: absolute;
-			right: 3rem;
-		} @else {
+		// make gap on left small
+		&.wrapper-2a6GCs { padding-left: 48px; }
+
+		// Make replied messages work with small avatars
+		.repliedMessage-VokQwo::before { --avatar-size: #{2rem - $avatar-size}; }
+
+		// Bring messages inline
+		.contents-2mQqc9 {
 			display: flex;
-			align-items: baseline;
-			flex-direction: row-reverse;
-
-			.headerText-3Uvj1Y {
-				margin-right: 0;
-				margin-left: $header-spacing;
-			}
-
-			.timestamp-3ZCmNB {
-				margin-right: $header-spacing;
-				margin-left: 0;
-			}
-		}
-
-		// Support pronoundb-powercord better
-		// Last header item, unless it's a timestamp
-		& > :last-child:not(.timestamp-3ZCmNB) {
-			@if $hide-inline-pronoundb { display: none; }
-            @else {
-				@if not($right-align-header) {
-					margin-left: -0.75rem;
-					margin-right: $header-spacing * 2;
+			&, :nth-child(3){
+				@if $right-align-header {
+					@if $hide-inline-pronoundb {
+						padding-right: $max-expected-header-width;
+					} @else {
+						padding-right: $max-expected-header-width + 10rem;
+					}
 				}
 			}
 		}
-	}
 
-	// Hide timestamps on non group-starts
-	.timestampVisibleOnHover-2bQeI4 {
-		display: none;
-	}
-
-	// Message spacing
-	min-height: 0 !important;
-	&.groupStart-23k01U { margin-top: 0.3rem !important; }
-	margin-top: 0 !important;
-
-	
-
-	@if $right-align-header {
-		margin-left: 1rem !important;
-		padding-left: .5rem !important;
-		.repliedMessage-VokQwo { margin-left: 2rem; }
-
-		margin-right: .5rem !important;
-		padding-right:.5rem !important;
-		.header-23xsNx { right: 2.5rem; }
-		.avatar-1BDn8e { right: .5rem; }
-	} @else {
-		margin-left: 1rem !important;
-		padding-left: 1.75rem !important;
-		.avatar-1BDn8e { left: calc(16px - .75rem); }
-		.repliedMessage-VokQwo { margin-left: calc(16px - .5rem); }
-	}
-
-	.contents-2mQqc9 :nth-child(3) { display: block; flex: 1; }
-
-	// Add a border on top of message groups
-	&.groupStart-23k01U {
-		border-top: 1px dashed var(--interactive-muted);
-		border-top-left-radius: .7rem;
-		@if $right-align-header { border-top-right-radius: .7rem; }
-	}
-
-	@if $right-align-header {
-		border-right: 1px dashed var(--interactive-muted);
-	}
-
-	border-left: 1px dashed var(--interactive-muted);
-
-	// Make header show inline with message reply
-	@if $right-align-header { .header-23xsNx, .avatar-1BDn8e { top: 2px; } }
-}
-
-// Fix bottom avatar slightly cut off
-.scrollerSpacer-avRLaA { height: #{30px + $spacer-increase}; }
-
-#---new-messages-bar {
-	margin-bottom: 0.1rem;
-	top: 0;
-
-	@if $right-align-header {
-		.unreadPill-2HyYtt {
-			right: unset;
-			left: 0;
-			border-left: unset;
-			border-radius: 4px 0 0 4px;
-			padding: 1px 1px 0 4px;
-
-			.unreadPillCap-3_K2q2 {
-				left: unset;
-				right: -6px;
-				transform: rotate(180deg);
-				z-index: -1;
+		// Set margins on message content
+		@if not($right-align-header) {
+			&.groupStart-23k01U {
+				.messageContent-2qWWxC,
+				.channelTextArea-3bF57p,
+				.operations-36ENbA {
+					margin-left: $message-left-margin;
+					padding-left: 0;
+				}
 			}
 		}
-	} @else { .unreadPill-2HyYtt { padding: 1px 4px 0 1px; } }
+
+		// Fix large emojis
+		.emoji.jumboable {
+			width: $emoji-size;
+			height: $emoji-size;
+			min-height: $emoji-size;
+		}
+
+		@if $right-align-header {
+			.avatar-1BDn8e {
+				position: absolute;
+				right: 1rem;
+				left: unset;
+			}
+		}
+
+		// Name & timestamp
+		.header-23xsNx {
+			@if $right-align-header {
+				position: absolute;
+				right: 3rem;
+			} @else {
+				display: flex;
+				align-items: baseline;
+				flex-direction: row-reverse;
+
+				.headerText-3Uvj1Y {
+					margin-right: 0;
+					margin-left: $header-spacing;
+				}
+
+				.timestamp-3ZCmNB {
+					margin-right: $header-spacing;
+					margin-left: 0;
+				}
+			}
+
+			// Support pronoundb-powercord better
+			// Last header item, unless it's a timestamp
+			& > :last-child:not(.timestamp-3ZCmNB) {
+				@if $hide-inline-pronoundb { display: none; }
+				@else {
+					@if not($right-align-header) {
+						margin-left: -0.75rem;
+						margin-right: $header-spacing * 2;
+					}
+				}
+			}
+		}
+
+		// Hide timestamps on non group-starts
+		.timestampVisibleOnHover-2bQeI4 {
+			display: none;
+		}
+
+		// Message spacing
+		min-height: 0 !important;
+		&.groupStart-23k01U { margin-top: 0.3rem !important; }
+		margin-top: 0 !important;
+
+		
+
+		@if $right-align-header {
+			margin-left: 1rem !important;
+			padding-left: .5rem !important;
+			.repliedMessage-VokQwo { margin-left: 2rem; }
+
+			margin-right: .5rem !important;
+			padding-right:.5rem !important;
+			.header-23xsNx { right: 2.5rem; }
+			.avatar-1BDn8e { right: .5rem; }
+		} @else {
+			margin-left: 1rem !important;
+			padding-left: 1.75rem !important;
+			.avatar-1BDn8e { left: calc(16px - .75rem); }
+			.repliedMessage-VokQwo { margin-left: calc(16px - .5rem); }
+		}
+
+		.contents-2mQqc9 :nth-child(3) { display: block; flex: 1; }
+
+		// Add a border on top of message groups
+		&.groupStart-23k01U {
+			border-top: 1px dashed var(--interactive-muted);
+			border-top-left-radius: .7rem;
+			@if $right-align-header { border-top-right-radius: .7rem; }
+		}
+
+		@if $right-align-header {
+			border-right: 1px dashed var(--interactive-muted);
+		}
+
+		border-left: 1px dashed var(--interactive-muted);
+
+		// Make header show inline with message reply
+		@if $right-align-header { .header-23xsNx, .avatar-1BDn8e { top: 2px; } }
+	}
+
+	// Fix bottom avatar slightly cut off
+	.scrollerSpacer-avRLaA { height: #{30px + $spacer-increase}; }
+
+	#---new-messages-bar {
+		margin-bottom: 0.1rem;
+		top: 0;
+
+		@if $right-align-header {
+			.unreadPill-2HyYtt {
+				right: unset;
+				left: 0;
+				border-left: unset;
+				border-radius: 4px 0 0 4px;
+				padding: 1px 1px 0 4px;
+
+				.unreadPillCap-3_K2q2 {
+					left: unset;
+					right: -6px;
+					transform: rotate(180deg);
+					z-index: -1;
+				}
+			}
+		} @else { .unreadPill-2HyYtt { padding: 1px 4px 0 1px; } }
+	}
+
 }
